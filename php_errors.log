@@ -1,0 +1,15 @@
+[18-May-2023 06:43:09 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'ext\php_excel.dll' - The specified module could not be found.
+ in Unknown on line 0
+[18-May-2023 06:43:10 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'ext\php_imagick.dll' - The specified module could not be found.
+ in Unknown on line 0
+[18-May-2023 06:43:12 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'ext\php_svn.dll' - The specified module could not be found.
+ in Unknown on line 0
+[18-May-2023 06:43:12 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'ext\php_sybase_ct.dll' - The specified module could not be found.
+ in Unknown on line 0
+[18-May-2023 08:43:13 Europe/Amsterdam] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 5.6.40. in D:\Workspace\laragon\www\sistem-parkir-unija\vendor\composer\platform_check.php on line 25
+[18-May-2023 08:43:13 Europe/Amsterdam] PHP Stack trace:
+[18-May-2023 08:43:13 Europe/Amsterdam] PHP   1. {main}() D:\Workspace\laragon\www\sistem-parkir-unija\artisan:0
+[18-May-2023 08:43:13 Europe/Amsterdam] PHP   2. require() D:\Workspace\laragon\www\sistem-parkir-unija\artisan:18
+[18-May-2023 08:43:13 Europe/Amsterdam] PHP   3. ComposerAutoloaderInit28950ef9c601915ae3a70b7f69f6bb78::getLoader() D:\Workspace\laragon\www\sistem-parkir-unija\vendor\autoload.php:12
+[18-May-2023 08:43:13 Europe/Amsterdam] PHP   4. require() D:\Workspace\laragon\www\sistem-parkir-unija\vendor\composer\autoload_real.php:25
+[18-May-2023 08:43:13 Europe/Amsterdam] PHP   5. trigger_error() D:\Workspace\laragon\www\sistem-parkir-unija\vendor\composer\platform_check.php:25
