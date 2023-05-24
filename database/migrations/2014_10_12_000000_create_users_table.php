@@ -29,6 +29,15 @@ return new class extends Migration
             $table->enum('status', ['active', 'nonactive']);
             $table->timestamps();
         });
+        Schema::create('user_qr_uuid', function (Blueprint $table) {
+            $table->id('id_qr');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id_user')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->string('uuid_enter', 50)->unique()->nullable();
+            $table->string('uuid_exit', 50)->unique()->nullable();
+            $table->unsignedBigInteger('id_trans')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -36,6 +45,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('user_qr_uuid');
         Schema::dropIfExists('accounts');
         Schema::dropIfExists('users');
     }

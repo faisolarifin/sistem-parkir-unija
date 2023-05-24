@@ -1,0 +1,12 @@
+body {
+    font-family: 'Red Hat Display', sans-serif;
+    background: #E9F4FF;
+}
+.box-navbar {
+    box-shadow: 0 0 30px rgba(0,0,0,.075);
+}
+.ibox {
+    box-shadow: 0 0 10px rgb(0, 0, 0, .1);
+    background: #fff;
+    border-radius: 25px;
+}

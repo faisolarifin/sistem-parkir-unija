@@ -22,6 +22,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_gate');
             $table->foreign('id_gate')->references('id_gate')->on('parkir_gates')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->string('kode_space');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id_user')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
         Schema::create('parkir_trans', function (Blueprint $table) {
             $table->id('id_trans');
@@ -31,11 +33,12 @@ return new class extends Migration
             $table->foreign('id_gatespace')->references('id_gatespace')->on('parkir_gate_spaces')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id_user')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
-            $table->dateTime('tgl_masuk');
-            $table->dateTime('tgl_keluar');
+            $table->dateTime('tgl_masuk')->nullable();
+            $table->dateTime('tgl_keluar')->nullable();
             $table->integer('lama_parkir')->nullable()->comment('satuan menit');
+            $table->string('kode_masuk')->nullable();
             $table->string('kode_keluar')->nullable();
-            $table->string('status', 20);
+            $table->string('status', 20)->nullable();
             $table->timestamps();
         });
     }
