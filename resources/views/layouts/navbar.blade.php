@@ -33,7 +33,7 @@
                             <li><a class="dropdown-item" href="{{ route('admin.gatespace') }}">Gate Spaces</a></li>
                         </ul>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.user') }}">Report Parkir</a>
+                        <a class="nav-link" href="{{ route('admin.history') }}">Report Parkir</a>
                     </li>
                     </li>
                 @endif

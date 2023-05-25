@@ -134,5 +134,17 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function historyPage(Request $request) {
+        $transParkirGate = ParkirTrans::with(["user", "gate", "gatespace"]);
+        if ($request->tgl_awal && $request->tgl_akhir) {
+            $transParkirGate->whereBetween('tgl_masuk', [
+                $request->tgl_awal,
+                $request->tgl_akhir,
+            ]);
+        }
+        $transParkirGate = $transParkirGate->orderBy('tgl_masuk', 'DESC')->get();
+        return view('admin.history.history', compact( 'transParkirGate'));
+    }
+
 
 }

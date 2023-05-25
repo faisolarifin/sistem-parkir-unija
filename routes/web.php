@@ -45,6 +45,7 @@ Route::middleware('admin')->group(function() {
     Route::delete('/users/{user}', [AdminController::class , 'deleteUser'])->name('admin.user.delete');
     Route::put('/users/{user}', [AdminController::class , 'updateUser'])->name('admin.user.update');
 
+    Route::get('/history', [AdminController::class , 'historyPage'])->name('admin.history');
 
 });
 
