@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row mt-4 justify-content-center">
-            <div class="col-10 col-sm-8 px-5 py-4 ibox">
+            <div class="col-11 col-sm-8 px-5 py-4 ibox">
                 <h3>My QR</h3>
                 @if(!$qr->id_trans)
                 <div class="row mt-3 justify-content-center">

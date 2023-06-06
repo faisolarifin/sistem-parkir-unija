@@ -39,8 +39,8 @@
                 @endif
             </ul>
             <div class="dropdown end-dropdown">
-                <button class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    ACH. FAISOL
+                <button class="btn dropdown-toggle text-uppercase" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ Auth::user()->user->nama }}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
