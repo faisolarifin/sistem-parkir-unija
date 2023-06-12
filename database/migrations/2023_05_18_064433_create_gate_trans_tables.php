@@ -19,10 +19,10 @@ return new class extends Migration
         });
         Schema::create('parkir_gate_spaces', function (Blueprint $table) {
             $table->id('id_gatespace');
-            $table->unsignedBigInteger('id_gate');
+            $table->unsignedBigInteger('id_gate')->nullable();
             $table->foreign('id_gate')->references('id_gate')->on('parkir_gates')->onUpdate('CASCADE')->onDelete('CASCADE');
-            $table->string('kode_space');
-            $table->unsignedBigInteger('id_user');
+            $table->string('kode_space')->nullable();
+            $table->unsignedBigInteger('id_user')->nullable();
             $table->foreign('id_user')->references('id_user')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
         Schema::create('parkir_trans', function (Blueprint $table) {

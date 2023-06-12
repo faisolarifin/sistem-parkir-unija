@@ -11,6 +11,12 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('state') }}">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('state') }}">Daftar Parkir</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('history') }}">History Parkir</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('myqr') }}">MyQR</a>
                     </li>
                 @elseif(Auth::user()->role == 'gate')

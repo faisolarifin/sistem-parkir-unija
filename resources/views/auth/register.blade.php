@@ -23,12 +23,21 @@
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-10 col-sm-5 shadow px-5 py-4 rounded bg-white">
-            <h5>Buat Akun Sistem Parkir Universitas Wiraraja</h5>
+            <div class="d-flex align-items-center">
+                <img src="{{ asset('assets/images/logo-universitas-wiraraja-madura.png') }}" alt="Logo Unija" width="60">
+                <div class="ms-3">
+                    <h5 class="mb-1">Buat Akun Sistem Parkir</h5>
+                    <h6 class="mb-0">Universitas Wiraraja</h6>
+                </div>
+            </div>
 
-            @if (Session::has('error'))
-                <div class="alert alert-danger alert-dismissible mt-2" role="alert">
-                    {{ Session::get('error') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            @if ($errors->any())
+                <div class="alert alert-danger mt-3">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
             @endif
 

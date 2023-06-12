@@ -22,12 +22,19 @@ class ParkirTransaction extends Controller
                 $q->where('id_gate', '=', $getGate);
             })->get();
 
+        return view('cekparkir', compact('gate', 'perParkirGate'));
+    }
+    public function getHistoryParkir(Request $request)
+    {
+        $getGate = $request->gate ?? 1;
+        $gate = ParkirGate::all();
+
         $transParkirGate = ParkirTrans::with(["user", "gatespace"])
             ->whereDate('tgl_masuk', Carbon::today())
             ->where('id_gate', '=', $getGate)
             ->get();
 
-        return view('cekparkir', compact('gate', 'perParkirGate', 'transParkirGate'));
+        return view('historyparkir', compact('gate', 'transParkirGate'));
     }
     public function indexMyQR() {
         $qr = Qruuid::with(["trans.gatespace", "user"])->where('id_user', '=', 1)->first();
