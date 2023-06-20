@@ -37,7 +37,7 @@ class ParkirTransaction extends Controller
         return view('historyparkir', compact('gate', 'transParkirGate'));
     }
     public function indexMyQR() {
-        $qr = Qruuid::with(["trans.gatespace", "user"])->where('id_user', '=', 1)->first();
+        $qr = Qruuid::with(["trans.gatespace", "user"])->where('id_user', '=', auth()->user()->id_user)->first();
         $enterQr = $this->encodeQr($qr->uuid_enter, 'enter');
         $exitQr  = $this->encodeQr($qr->uuid_exit, 'exit');
         return view('barcodeuser', compact('qr', 'enterQr', 'exitQr'));

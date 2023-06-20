@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white py-3 box-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3 box-navbar">
     <div class="container">
         <a class="navbar-brand" href="#">Sistem Parkir</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
