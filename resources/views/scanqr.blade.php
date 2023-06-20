@@ -57,7 +57,7 @@
             xhttp.open("POST", "/scanqr", true);
             xhttp.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
             xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xhttp.send(JSON.stringify({"qr" : content, "gate" : 1}));
+            xhttp.send(JSON.stringify({"qr" : content, "gate" : "{{ \Illuminate\Support\Facades\Auth::user()->id_user  }}"}));
         });
         Instascan.Camera.getCameras().then(function (cameras) {
             if (cameras.length > 0) {
