@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('parkir_gates', function (Blueprint $table) {
             $table->id('id_gate');
-            $table->unsignedBigInteger('id_akun')->nullable();
+            $table->unsignedBigInteger('id_akun');
             $table->foreign('id_akun')->references('id_akun')->on('accounts')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->string('nama_gate')->comment('nama fakultas');
             $table->integer('jml_max');
