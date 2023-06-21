@@ -1,16 +1,16 @@
-@extends('layouts.firstlayout')
+@extends('templates.admin', ['title' => 'History Parkir'])
 
 @section('content')
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col p-5 ibox">
-                <h3 class="mt-4">History Parkir</h3>
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="mb-4">History Parkir</h3>
                 <select class="form-select mb-4" onchange="location = this.value;">
                     @foreach($gate as $row)
                         <option value="?gate={{ $row->id_gate }}" {{ request('gate') == $row->id_gate ? 'selected' : '' }}>{{ $row->nama_gate }}</option>
                     @endforeach
                 </select>
-                <table class="table table-hover" id="mytable">
+                <table class="table table-hover mt-4" id="mytable">
                     <thead>
                     <tr>
                         <th>#</th>
@@ -38,5 +38,5 @@
 
             </div>
         </div>
-    </div>
+    </section>
 @endsection

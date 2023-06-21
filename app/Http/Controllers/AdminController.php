@@ -34,13 +34,15 @@ class AdminController extends Controller
     }
 
     public function indexGates(ParkirGate $gate) {
-        $gates = ParkirGate::all();
-        return view('admin.gates.gates', compact('gates', 'gate'));
+        $gates = ParkirGate::with('akun')->get();
+        $akun = Account::where('role', 'gate')->get();
+        return view('admin.gates.gates', compact('gates', 'gate', 'akun'));
     }
     public function saveGate(Request $request) {
         ParkirGate::create([
             'nama_gate' => $request->nm_gate,
             'jml_max' => $request->jml_max,
+            'id_akun' => $request->id_akun,
         ]);
         return redirect()->back();
     }
@@ -52,6 +54,7 @@ class AdminController extends Controller
         $gate->update([
             'nama_gate' => $request->nm_gate,
             'jml_max' => $request->jml_max,
+            'id_akun' => $request->id_akun,
         ]);
         return redirect()->route('admin.gates');
     }

@@ -1,9 +1,9 @@
-@extends('layouts.firstlayout')
+@extends('templates.admin', ['title' => 'Cek Parkir'])
 
 @section('content')
-    <div class="container">
-        <div class="row mt-4 justify-content-center">
-            <div class="col-10 col-sm-7 py-4 px-5 ibox">
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
                 <h3 class="text-center mb-3">Scan QR</h3>
                 <div class="text-center">
                     <video id="preview"></video>
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 @endsection
 
@@ -57,7 +57,7 @@
             xhttp.open("POST", "/scanqr", true);
             xhttp.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
             xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xhttp.send(JSON.stringify({"qr" : content, "gate" : "{{ \Illuminate\Support\Facades\Auth::user()->id_user  }}"}));
+            xhttp.send(JSON.stringify({"qr" : content, "gate" : "{{ $gate->id_gate  }}"}));
         });
         Instascan.Camera.getCameras().then(function (cameras) {
             if (cameras.length > 0) {

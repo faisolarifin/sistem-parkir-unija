@@ -1,9 +1,9 @@
-@extends('layouts.firstlayout')
+@extends('templates.admin', ['title' => 'Edit User'])
 
 @section('content')
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col p-5 ibox">
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
                     <h3>Tambah Pengguna</h3>
                 </div>
@@ -53,5 +53,5 @@
 
             </div>
         </div>
-    </div>
+    </section>
 @endsection

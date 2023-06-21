@@ -1,9 +1,9 @@
-@extends('layouts.firstlayout')
+@extends('templates.admin', ['title' => 'Gate Space'])
 
 @section('content')
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col p-5 ibox">
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
                 <h3 class="mb-4">Daftar GateSpaces</h3>
 
                 <div class="row justify-content-between">
@@ -62,5 +62,5 @@
 
             </div>
         </div>
-    </div>
+    </section>
 @endsection

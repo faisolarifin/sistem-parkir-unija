@@ -20,6 +20,10 @@ class ParkirGate extends Model
     /**
      * @var string[]
      */
-    protected $fillable = ['nama_gate', 'jml_max'];
+    protected $fillable = ['nama_gate', 'jml_max', 'id_akun'];
+
+    public function akun() {
+        return $this->belongsTo(Account::class, 'id_akun', 'id_akun');
+    }
 
 }

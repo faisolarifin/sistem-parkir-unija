@@ -1,9 +1,9 @@
-@extends('layouts.firstlayout')
+@extends('templates.admin', ['title' => 'Users'])
 
 @section('content')
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col p-5 ibox">
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
                     <h3>Data Pengguna</h3>
                     <a href="{{ route('admin.user.tambah') }}" class="btn btn-primary">+ Tambah</a>
@@ -47,5 +47,5 @@
 
             </div>
         </div>
-    </div>
+    </section>
 @endsection

@@ -1,9 +1,9 @@
-@extends('layouts.firstlayout')
+@extends('templates.admin', ['title' => 'Home Admin'])
 
 @section('content')
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col p-5 ibox">
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
                 <h3 class="mb-4">Daftar Parkir</h3>
                 <select class="form-select" onchange="location = this.value;">
                     @foreach($gate as $row)
@@ -33,7 +33,7 @@
                 </table>
 
                 <h3 class="mt-4">History Parkir</h3>
-                <table class="table table-hover" id="mytable">
+                <table class="table table-hover mt-4" id="mytable">
                     <thead>
                     <tr>
                         <th>#</th>
@@ -61,5 +61,5 @@
 
             </div>
         </div>
-    </div>
+    </section>
 @endsection

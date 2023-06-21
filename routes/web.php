@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::middleware('user')->group(function() {
+    Route::get('/dashboard', [ParkirTransaction::class, 'dashboardPage'])->name('dash');
     Route::get('/state', [ParkirTransaction::class, 'getTransPerParkirGate'])->name('state');
     Route::get('/parkinghistory', [ParkirTransaction::class, 'getHistoryParkir'])->name('history');
     Route::get('/myqr', [ParkirTransaction::class, 'indexMyQR'])->name('myqr');

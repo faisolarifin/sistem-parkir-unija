@@ -1,9 +1,9 @@
-@extends('layouts.firstlayout')
+@extends('templates.admin', ['title' => 'History Parkir'])
 
 @section('content')
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col p-5 ibox">
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
                 <h3 class="mt-4">History Parkir</h3>
                 <div class="my-3">
                     <form method="get">
@@ -54,5 +54,5 @@
 
             </div>
         </div>
-    </div>
+    </section>
 @endsection

@@ -12,6 +12,9 @@ use Illuminate\Support\Str;
 
 class ParkirTransaction extends Controller
 {
+    public function dashboardPage() {
+        return view('homeuser');
+    }
 
     public function getTransPerParkirGate(Request $request)
     {
@@ -44,7 +47,8 @@ class ParkirTransaction extends Controller
     }
 
     public function indexScanQR() {
-        return view('scanqr');
+        $gate = ParkirGate::where('id_akun', '=', auth()->user()->id_akun)->first();
+        return view('scanqr', compact('gate'));
     }
 
     public function processQrScanned(Request $request) {

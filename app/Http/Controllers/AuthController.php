@@ -41,7 +41,7 @@ class AuthController extends Controller
         ];
         if (Auth::attempt($data)) {
             if (auth()->user()->role == 'user') {
-                return redirect()->route('state');
+                return redirect()->route('dashboard');
             }
             elseif (auth()->user()->role == 'gate') {
                 return redirect()->route('scanqr');

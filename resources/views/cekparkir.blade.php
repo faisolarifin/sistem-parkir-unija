@@ -1,9 +1,10 @@
-@extends('layouts.firstlayout')
+@extends('templates.admin', ['title' => 'Cek Parkir'])
 
 @section('content')
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col p-5 ibox">
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
+
                 <h3 class="mb-4">Daftar Parkir</h3>
                 <select class="form-select" onchange="location = this.value;">
                     @foreach($gate as $row)
@@ -33,11 +34,9 @@
                 </table>
                 <div class="text-center">
                     <img src="{{ asset('assets/images/parkir1.jpg') }}" alt="" width="70%">
-
                 </div>
-
 
             </div>
         </div>
-    </div>
+    </section>
 @endsection
