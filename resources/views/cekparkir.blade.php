@@ -33,7 +33,7 @@
                     </tbody>
                 </table>
                 <div class="text-center">
-                    <img src="uploads/{{ $selectedGate->denah }}" alt="..." width="70%">
+                    <img src="uploads/{{ @$selectedGate->denah }}" alt="..." width="70%">
                 </div>
 
             </div>
