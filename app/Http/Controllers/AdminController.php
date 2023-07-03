@@ -40,12 +40,15 @@ class AdminController extends Controller
         return view('admin.gates.gates', compact('gates', 'gate', 'akun'));
     }
     public function saveGate(Request $request) {
-        $path = $request->file('denah')->store('public/denah');
+        $path = $request->file('denah')->store('temp');
+        $file = $request->file('denah');
+        $fileName = $file->getClientOriginalName();
+        $file->move(public_path('uploads'), $fileName);
         ParkirGate::create([
             'nama_gate' => $request->nm_gate,
             'jml_max' => $request->jml_max,
             'id_akun' => $request->id_akun,
-            'denah' => $path,
+            'denah' => $fileName,
         ]);
         return redirect()->back();
     }
@@ -55,15 +58,18 @@ class AdminController extends Controller
     }
     public function updateGate(Request $request, ParkirGate $gate) {
         if ($request->file('denah')) {
-            $path = $request->file('denah')->store('public/denah');
+            $path = $request->file('denah')->store('temp');
+            $file = $request->file('denah');
+            $fileName = $file->getClientOriginalName();
+            $file->move(public_path('uploads'), $fileName);
         } else {
-            $path = $gate->denah;
+            $fileName = $gate->denah;
         }
         $gate->update([
             'nama_gate' => $request->nm_gate,
             'jml_max' => $request->jml_max,
             'id_akun' => $request->id_akun,
-            'denah' => $path,
+            'denah' => $fileName,
         ]);
         return redirect()->route('admin.gates');
     }

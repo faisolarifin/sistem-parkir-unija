@@ -57,8 +57,8 @@
                                     <td>{{ $row->nama_gate }}</td>
                                     <td>{{ $row->akun->username }}</td>
                                     <td>{{ $row->jml_max }}</td>
-                                    <td><a href="{{ Storage::url($row->denah) }}" target="_blank">
-                                            <img src="{{ Storage::url($row->denah) }}" alt=".." width="100">
+                                    <td><a href="uploads/{{ $row->denah }}" target="_blank">
+                                            <img src="uploads/{{ $row->denah }}" alt=".." width="100">
                                         </a></td>
                                     <td>
                                         <a href="{{ route('admin.gates.edit', $row->id_gate) }}" class="btn btn-info btn-sm">edit</a>
