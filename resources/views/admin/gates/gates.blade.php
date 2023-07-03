@@ -7,8 +7,8 @@
                 <h3 class="mb-4">Daftar Gates</h3>
 
                 <div class="row justify-content-between">
-                    <div class="col-sm-4">
-                        <form action="{{ $gate->id_gate ? route('admin.gates.update', $gate->id_gate) : route('admin.gates.save') }}" method="post">
+                    <div class="col-sm-4 px-3">
+                        <form action="{{ $gate->id_gate ? route('admin.gates.update', $gate->id_gate) : route('admin.gates.save') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @if($gate->id_gate)
                                 @method('PUT')
@@ -30,10 +30,14 @@
                                 <label for="jml_max" class="form-label">Jumlah Maksimal</label>
                                 <input type="number" class="form-control" id="jml_max" name="jml_max" placeholder="Jumlah Maksimal" value="{{ $gate->jml_max }}">
                             </div>
+                            <div class="mb-3">
+                                <label for="denah" class="form-label">Denah Parkir</label>
+                                <input type="file" class="form-control" id="denah" name="denah" placeholder="Denah Parkir">
+                            </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-sm-8 px-4">
                         <table class="table table-hover" id="mytable">
                             <thead>
                             <tr>
@@ -41,6 +45,7 @@
                                 <th>Nama Gates</th>
                                 <th>Username Gate</th>
                                 <th>Jumlah Maksimal</th>
+                                <th>Denah Parkir</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
@@ -52,6 +57,9 @@
                                     <td>{{ $row->nama_gate }}</td>
                                     <td>{{ $row->akun->username }}</td>
                                     <td>{{ $row->jml_max }}</td>
+                                    <td><a href="{{ Storage::url($row->denah) }}" target="_blank">
+                                            <img src="{{ Storage::url($row->denah) }}" alt=".." width="100">
+                                        </a></td>
                                     <td>
                                         <a href="{{ route('admin.gates.edit', $row->id_gate) }}" class="btn btn-info btn-sm">edit</a>
                                         <form action="{{ route('admin.gates.delete', $row->id_gate) }}" method="post" class="d-inline">

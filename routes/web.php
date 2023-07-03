@@ -57,3 +57,6 @@ Route::post('/login', [AuthController::class, 'actionLogin'])->name('login.proce
 Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
 Route::post('/register', [AuthController::class, 'actionRegister'])->name('register.process');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/coba', [ParkirTransaction::class, 'coba']);
+
+

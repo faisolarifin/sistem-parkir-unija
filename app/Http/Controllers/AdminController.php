@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class AdminController extends Controller
@@ -39,10 +40,12 @@ class AdminController extends Controller
         return view('admin.gates.gates', compact('gates', 'gate', 'akun'));
     }
     public function saveGate(Request $request) {
+        $path = $request->file('denah')->store('public/denah');
         ParkirGate::create([
             'nama_gate' => $request->nm_gate,
             'jml_max' => $request->jml_max,
             'id_akun' => $request->id_akun,
+            'denah' => $path,
         ]);
         return redirect()->back();
     }
@@ -51,10 +54,16 @@ class AdminController extends Controller
         return redirect()->back();
     }
     public function updateGate(Request $request, ParkirGate $gate) {
+        if ($request->file('denah')) {
+            $path = $request->file('denah')->store('public/denah');
+        } else {
+            $path = $gate->denah;
+        }
         $gate->update([
             'nama_gate' => $request->nm_gate,
             'jml_max' => $request->jml_max,
             'id_akun' => $request->id_akun,
+            'denah' => $path,
         ]);
         return redirect()->route('admin.gates');
     }

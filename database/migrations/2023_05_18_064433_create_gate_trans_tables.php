@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('id_akun')->references('id_akun')->on('accounts')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->string('nama_gate')->comment('nama fakultas');
             $table->integer('jml_max');
+            $table->string('denah', 255)->nullable();
             $table->timestamps();
         });
         Schema::create('parkir_gate_spaces', function (Blueprint $table) {

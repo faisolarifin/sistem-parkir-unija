@@ -20,12 +20,13 @@ class ParkirTransaction extends Controller
     {
         $getGate = $request->gate ?? 1;
         $gate = ParkirGate::all();
+        $selectedGate = ParkirGate::find($getGate);
         $perParkirGate = ParkirGateSpace::with(["user", "gate", "trans"])
             ->whereHas("gate", function($q) use ($getGate) {
                 $q->where('id_gate', '=', $getGate);
             })->get();
 
-        return view('cekparkir', compact('gate', 'perParkirGate'));
+        return view('cekparkir', compact('gate', 'perParkirGate', 'selectedGate'));
     }
     public function getHistoryParkir(Request $request)
     {
@@ -68,7 +69,7 @@ class ParkirTransaction extends Controller
                 "message" => "Anda Sudah Scan QR!!"
             ], 400);
 
-            $randomEmptySpaceGate = ParkirGateSpace::inRandomOrder()->where([
+            $randomEmptySpaceGate = ParkirGateSpace::where([
                 "id_user" => null,
                 "id_gate" => $kodeGate,
             ])->limit(1)->first();
