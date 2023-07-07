@@ -1,3 +1,7 @@
+body {
+    background: url("/assets/images/bg_parkir.jpg") no-repeat #F5F4F9;
+    background-size: 100%;
+}
 .btn-primary, .btn-danger, .btn-info, .btn-success, .btn-secondary {
     transform: translateY(-1px);
 }
